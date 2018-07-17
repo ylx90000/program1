@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block abc %}
+{% for a in article %}
+     <h4><a href="/homesite/{{ user.username }}/article/{{ a.pk }}">{{ a.title }}</a></h4>
+                <div>{{ a.desc }}</div>
+                <div class="luokuan small">发布于{{ a.create_time }} <span>&nbsp;&nbsp;</span>&nbsp;&nbsp;<span
+                        class="glyphicon glyphicon-comment"><a href="">评论({{ a.comment_count }})</a></span>&nbsp;&nbsp;<span
+                        class="glyphicon glyphicon-thumbs-up"><a
+                        href="">赞({{ a.up_count }})</a></span></div>
+                <br>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ user.username }} 的博客</title>
+    <link rel="stylesheet" href="/static/css/theme/{{ blog.theme }}">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="/static/css/art.css">
+</head>
+<body>
+<div class="head"><h4 class="head1">{{ user.username }} 的博客</h4></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-danger">
+                <div class="panel-heading">分类</div>
+                <div class="panel-body">
+                    {% for c in category %}
+                        <p></p><a href="/homesite/{{ user.username }}/category/{{ c.pk }}">{{ c.title }}({{ c.c }})</a>
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div class="panel panel-warning">
+                <div class="panel-heading">标签</div>
+
+                <div class="panel-body">
+
+                    {% for t in tag %}
+                        <p></p><a href="/homesite/{{ user.username }}/tag/{{ t.pk }}">{{ t.title }}({{ t.c }})</a>
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">随笔档案</div>
+                <div class="panel-body">
+                    {% for d in date_list %}
+                        <a href="">
+                            {{ d.date }}({{ d.c }})</a>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            {% block abc %}
+
+            {% endblock %}
+        </div>
+    </div> </div>
+
+
+</body>
